@@ -2,15 +2,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-    <div>
-        <form method="post">
-            <input type="text" name="text" placeholder="Введите сообщение" />
-            <input type="text" name="tag" placeholder="Тэг" />
-            <button type="submiy">Добавить</button>
-        </form>
-    </div>
     <body>
+        <div>
+            <form method="post" action="/">
+                <input type="text" name="text" placeholder="Введите сообщение" />
+                <input type="text" name="tag" placeholder="Тэг" />
+                <button type="submiy">Добавить</button>
+            </form>
+        </div>
         <h1>Список сообщений</h1>
+        <form method="post" action="filter">
+            <input type="text" name="filter" placeholder="фильтр"/>
+            <button type="submit">Найти</button>
+        </form>
         {{#messages}}
             <div>
                 <b>{{id}}</b>

@@ -35,11 +35,29 @@ public class GreetingController {
     public String add(@RequestParam String text,
                       @RequestParam String tag,
                       Map<String, Object> model){
-        Message mes = new Message(text,tag);
-        this.messageRepo.save(mes);
+        if(text != null && !text.isEmpty() ){
+            Message mes = new Message(text,tag);
+            this.messageRepo.save(mes);
+        }
         Iterable<Message> messages = this.messageRepo.findAll();
         model.put("messages",messages);
         return "main";
+    }
+
+    @PostMapping("filter")
+    public String filter(@RequestParam String filter,
+                         Map<String, Object> model){
+        Iterable<Message> messages;
+        if(filter != null && !filter.isEmpty()) {
+             messages = this.messageRepo.findByTag(filter);
+        }else{
+             messages = this.messageRepo.findAll();
+        }
+        messages.forEach(System.out::println);
+        this.messageRepo.findByTag(filter);
+        model.put("messages",messages);
+        return "main";
+
     }
 
 }
