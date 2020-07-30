@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <div>
+        <form method="post">
+            <input type="text" name="text" placeholder="Введите сообщение" />
+            <input type="text" name="tag" placeholder="Тэг" />
+            <button type="submiy">Добавить</button>
+        </form>
+    </div>
+    <body>
+        <h1>Список сообщений</h1>
+        {{#messages}}
+            <div>
+                <b>{{id}}</b>
+                <span>{{message}}</span>
+                <i>{{tag}}</i>
+            </div>
+        {{/messages}}
+    </body>
+</html>
