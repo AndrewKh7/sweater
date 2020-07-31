@@ -1,4 +1,4 @@
-package org.letscode.sweater;
+package org.letscode.sweater.controllers;
 
 import org.letscode.sweater.domain.Message;
 import org.letscode.sweater.repo.MessageRepo;
