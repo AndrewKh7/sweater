@@ -3,24 +3,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
     <body>
+    <div>
+        <form action="/logout" method="post">
+            <input type="submit" value="Sign Out"/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        </form>
+    </div>
         <div>
             <form method="post" action="/">
                 <input type="text" name="text" placeholder="Введите сообщение" />
                 <input type="text" name="tag" placeholder="Тэг" />
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
                 <button type="submiy">Добавить</button>
             </form>
         </div>
         <h1>Список сообщений</h1>
         <form method="post" action="filter">
             <input type="text" name="filter" placeholder="фильтр"/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
             <button type="submit">Найти</button>
         </form>
         {{#messages}}
-            <div>
+            <p>
                 <b>{{id}}</b>
                 <span>{{message}}</span>
                 <i>{{tag}}</i>
-            </div>
+            </p>
         {{/messages}}
     </body>
 </html>
